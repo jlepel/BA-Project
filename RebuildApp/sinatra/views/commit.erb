@@ -1,0 +1,42 @@
+
+<article >
+    <p> Installed to... <%= INSTALLATION_FOLDER%> </p>
+    <%if @folder_creation == true%>
+        <p class="meta"><span style="font-weight:bold; color:green"> check </span> </p>
+    <% else %>
+        <p class="meta"><span style="font-weight:bold; color:red"> failed </span> </p>
+    <% end %>
+</article>
+
+<article >
+    <p> Set folder permissions... </p>
+    <%if @folder_permissions.nil?%>
+        <p class="meta"><span style="font-weight:bold; color:red"> failed </span> </p>
+    <% else %>
+        <p class="meta"><span style="font-weight:bold; color:green"> check </span> </p>
+    <% end %>    
+</article>
+
+<article >
+    <p> Build Vagrant File...</p>  
+    <%if @vagrant_file_created.nil?%>
+        <p class="meta"><span style="font-weight:bold; color:red"> failed </span> </p>
+    <% else %>
+        <p class="meta"><span style="font-weight:bold; color:green"> check </span> </p>
+    <% end %>
+</article>
+
+<article >
+    <p> Start Vagrant... </p>
+    <p class="meta"><span style="font-weight:bold; color:green">check</span> </p>
+</article>
+<article >
+    <p> Installed all Programs... </p>
+    <p class="meta"><span style="font-weight:bold; color:green">check</span> </p>
+</article>
+<article >
+    <p> Machine ready..."HOSTNAME" </p>
+    <p class="meta"><span style="font-weight:bold; color:green">check</span> </p>
+</article>
+
+

@@ -1,0 +1,12 @@
+<section id="allPrograms">
+<% getAllPrograms.each do |p| %>
+  <article >
+    <p>
+      ID: <%= p.id %><br>
+      Prog.Name: <%= p.title %><br>
+      Command: <%= p.command %>
+    </p>
+    
+  </article>
+<% end %>
+</section>

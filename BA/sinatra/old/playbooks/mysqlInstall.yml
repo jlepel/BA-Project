@@ -1,0 +1,14 @@
+---
+#- 
+# hosts: apache
+# tasks:
+  - name: Install mysql packages 
+    action: apt pkg={{ item }} state=installed
+    with_items:
+     - mysql-server
+     - mysql-client
+# handlers:
+#  - name: Restart MySQL
+#    action: service name=mysql state=restarted
+
+  

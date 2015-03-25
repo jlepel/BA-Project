@@ -1,0 +1,37 @@
+---
+- 
+ hosts: test
+ tasks:
+  - include: ../ansible/php5Install.yml
+  - include: ../ansible/mysqlInstall.yml
+  - include: ../ansible/imapInstall.yml
+  - include: ../ansible/curlInstall.yml
+  - name: copy and unarchive vTiger on Client
+    unarchive: src=/downloads/vtigercrm6.1.0.tar.gz dest=/tmp mode=0644
+  - name: check if Vtiger excists
+    stat: path=/var/www/Vtiger
+    register: Vtiger_stat
+  - name: delete old vtiger
+    command: rm -r /var/www/Vtiger
+    when: Vtiger_stat.stat.exists
+  - name: change name
+    command: mv /tmp/vtigercrm /var/www/Vtiger
+  - name: set userrights 
+    command: chmod -R 777 /var/www/Vtiger  
+  #- name: backup config.inc.php
+  #  stat: path=/var/www/tiger/config.ing.php
+  #  register: config_stat
+  #- name: Move file
+  #  command: mv /var/www/tiger/config.inc.php /var/www/tiger/config.inc.p_p
+  #  when: config_stat.stat.exists
+ # - name: copy the config file of vtiger to new installation folder
+ #   copy: src=/downloads/config.inc.php dest=/var/www/tiger/ mode=0644
+ 
+
+ handlers:
+  - name: restart apache
+    action: service name=apache2 state=restarted
+  - name: Restart MySQL
+    action: service name=mysql state=restarted
+
+

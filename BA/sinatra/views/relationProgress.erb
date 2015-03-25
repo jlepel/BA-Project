@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8' />
+    <title>Maschine Builder 2000</title>
+    <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+  </head>
+  <body class='container'>
+    <form action='/relate/progress/finished' method='post'>
+    <% getAllPrograms.each do |id| %>
+          
+       <label class='checkbox'>
+         <input type='checkbox' name='checkedProgs[]' value='<%= id.title %>'  id='vote_<%= id %>' />
+            <%= id.title %>
+            
+       </label>
+       <input type="hidden" name="progVote" value="<%= @progV %>">
+    <% end %>
+       
+      <br>
+      <button type='submit' class='btn btn-primary'>Next</button>
+    </form>
+  </body>
+</html>

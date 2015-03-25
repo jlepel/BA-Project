@@ -1,0 +1,20 @@
+<% if @program_voting %>
+ <form action="/commit" method="post">
+   Your YAML File<br>
+   <body class='container'>
+    <pre><%= @yaml_file %></pre>
+   </body>
+  <br>
+   <section id="commit">
+    <input type="submit"  value="Publish">
+   </section>
+
+ </form>
+<% else %>
+  <p>You did't choose an application!</p>
+<% end %>
+
+
+
+
+ 

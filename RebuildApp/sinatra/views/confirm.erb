@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8' />
+    <title>Maschine Builder 2000</title>
+    <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+  </head>
+  <body class='container'>
+     <% if !@program_voting.nil? %>
+      Your Programs:<br>
+        <% @@program_voting.each do |prog|%>
+        <br>
+        <%= prog %>
+        <% end %>
+     <% else %>
+        You chose no programs!
+     <% end %>
+ </body>
+</html>

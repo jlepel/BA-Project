@@ -1,0 +1,13 @@
+<%if @folderCreation %> 
+ <p>Build directory: </p> <%= @folderCreation%><br>
+<% else %>
+<p>No folder created</p>
+<% end %>
+
+<%if @folderPermissions %>
+ <p>Permission set: </p> <%= @folderPermissions%><br>
+<% else %>
+<p>No permissions set</p>
+<% end %>
+
+

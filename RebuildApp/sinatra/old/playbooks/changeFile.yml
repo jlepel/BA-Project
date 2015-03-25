@@ -1,0 +1,15 @@
+---
+- 
+ hosts: test
+ tasks:
+  - name: check if abc.ini exists
+    stat: path=/tmp/abc.ini
+    register: abc_stat
+
+  - lineinfile: dest=/tmp/abc.ini
+                state=present
+                regexp='^(.*)1234(.*)$'
+                line='\1abcd\2'
+                backup=yes
+                backrefs=yes
+

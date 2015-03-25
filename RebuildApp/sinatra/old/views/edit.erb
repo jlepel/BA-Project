@@ -1,0 +1,13 @@
+<% if @program %>
+  <form action="/<%= @program.id %>" method="post" id="edit">
+    <input type="hidden" name="_method" value="put">
+    <textarea name="title"><%= @program.title %></textarea>
+    <textarea name="command"><%= @program.command %></textarea>
+    
+    <input type="submit">
+  </form>
+  <br>
+  <p><a href="/<%= @program.id %>/delete">Delete</a></p>
+<% else %>
+  <p>Program not found (EDIT)</p>
+<% end %>

@@ -1,0 +1,6 @@
+---
+#- 
+# hosts: test
+# tasks:
+   - name: install php-imap 
+     action: apt pkg=php5-imap state=installed  

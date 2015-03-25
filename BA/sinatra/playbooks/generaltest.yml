@@ -1,0 +1,22 @@
+---
+- 
+ hosts: example
+ vars:  
+   color: brown
+ tasks: 
+ - name: check server
+   action: ping
+ - name: create file
+   file: path=/tmp/bla.txt state=touch
+ #- name: generate file with permissions
+ #  copy: src=/tmp/myTest.txt dest=/tmp/myTest2.txt owner=grzegorz group=grzegorz mode=0644
+ - name: copy and unarchive test zipfile on remote server 
+   unarchive: src=/tmp/kompress.zip dest=/tmp/
+# - name: ensure apache is running
+#   service: name=httpd state=started
+ - name: Paint the server $color
+   action: command echo $color
+ handlers:
+ - name: restart apache
+   action: service name=apache2 state=restarted
+

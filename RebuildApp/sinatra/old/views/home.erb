@@ -1,0 +1,36 @@
+
+ <br><br><br><br>
+ <body class='container'>
+  <section id="add">
+    <form action="/" method="post">
+     <input type="text" name="program" placeholder="Program&hellip;">
+     <input type="text" name="command" placeholder="Command&hellip;">
+     <input type="submit">
+    </form>
+  </section>
+
+  <form action='/confirmation' method='post'>
+  <% @programs.each do |program| %>
+   <article >
+    <p>
+      <%= program.title %>
+      <span><a href="/<%= program.id %>">[edit]</a></span>
+    </p>
+    <p class="links">
+    <input type='checkbox' name='progVote[]' value='<%= program.title %>'/>
+    </p>
+    
+    <p class="meta">Command: <%= program.command %> <br>
+                    Created: <%= program.created_at %>       
+     
+    </p>
+   </article>
+  <% end %>
+ <br>
+ <section id="commit">
+    <input type="submit"  value="Next">
+ </section>
+
+  </form>
+  </body>
+

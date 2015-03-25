@@ -1,0 +1,11 @@
+---
+- 
+ hosts: all
+ tasks: 
+ - name: check server
+   action: ping
+ - name: ensure apache is running
+   service: name=httpd state=started
+ handlers:
+ - name: restart apache
+   action: service name=apache2 state=restarted

@@ -1,0 +1,6 @@
+---
+#- 
+# hosts: test
+# tasks:
+   - name: install php5 
+     action: apt pkg=php5 state=installed  
